@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap');
+
+* {
+  font-family: 'Cairo', sans-serif;
+}
+
+.languageSwitch {
+  background-color: rgb(255, 255, 255);
+  padding: 4px;
+  display: flex;
+}
+.languageSwitch h6 {
+  background-color: rgb(255, 255, 255);
+  margin-top: 3px;
+}
+
+.lang-btn {
+  border: none;
+  background-color: rgb(255, 255, 255);
+  margin: 1px;
+}
+.lang-btn:focus {
+  outline: 1px solid #f1bd2e;
+}
+
+.landing-jumb {
+  background-image: url('../assets/jumbtron-img.jpg');
+  border-radius: 0;
+  height: 75vh;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.landing-jumb div {
+  background-color: rgba(255, 255, 255, 0.678);
+  padding: 10px;
+  margin-top: 9vh;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 5px;
+}
+
+/**
+*Phone screen 
+*
+**/
+
+@media screen and (max-width: 600px) {
+  .landing-jumb {
+    height: 65vh;
+  }
+  .landing-jumb div {
+    margin-top: 7vh;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .landing-jumb div h1 {
+    font-size: 20px;
+  }
+  .landing-jumb div p {
+    font-size: 12px;
+  }
+}
