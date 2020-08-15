@@ -13,7 +13,7 @@ import {
 export const Services = () => {
   return (
     <>
-      <Col lg={4}>
+      <Col lg={4} className="mb-3">
         <Card>
           <CardImg top width="100%" src={service1} alt="Card image cap" />
           <CardBody>

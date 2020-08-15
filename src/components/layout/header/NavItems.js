@@ -7,11 +7,7 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  FormGroup,
-  Form,
-  Input,
 } from 'reactstrap';
-import SearchIcon from '@material-ui/icons/Search';
 
 export const NavItems = () => {
   return (
@@ -42,17 +38,6 @@ export const NavItems = () => {
           <NavLink href="/">اتصل بنا</NavLink>
         </NavItem>
       </Nav>
-      <SearchIcon />
-      <Form className="mt-3 ">
-        <FormGroup>
-          <Input
-            type="text"
-            name="search"
-            id="search"
-            placeholder="ابحث عن منتج"
-          />
-        </FormGroup>
-      </Form>
     </>
   );
 };
