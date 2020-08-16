@@ -29,7 +29,7 @@ export default class SearchBox extends Component {
                   type="text"
                   name="search"
                   id="search"
-                  placeholder="ابحث عن منتج"
+                  placeholder="ادخل اسم المنتج"
                 />
               </FormGroup>
             </Form>
