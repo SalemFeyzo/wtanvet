@@ -8,7 +8,7 @@ const Products = () => {
   return (
     <Container>
       <Row>
-        <Col sm={12} md={12} lg={3} className="mb-3">
+        <Col sm={12} md={12} lg={3} className="mb-3 mt-3">
           <ProductSearchBox />
           <ProductsCategoryAccordion />
         </Col>

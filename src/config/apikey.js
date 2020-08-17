@@ -1,1 +1,1 @@
-export const REACT_APP_GOOGLE_KEY = '';
+export const REACT_APP_GOOGLE_KEY = 'AIzaSyAoOZDp6RLFT5nqVT5UfOrPvqQZ9evf7LU';

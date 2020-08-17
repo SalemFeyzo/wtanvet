@@ -13,8 +13,10 @@ class App extends Component {
       <BrowserRouter>
         <div dir="rtl">
           <Header />
-          <Routes />
-          <Footer />
+          <div className="body">
+            <Routes />
+            <Footer />
+          </div>
         </div>
       </BrowserRouter>
     );

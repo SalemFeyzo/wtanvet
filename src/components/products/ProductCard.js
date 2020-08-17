@@ -4,7 +4,7 @@ import { Col, Card, CardImg, CardBody, CardTitle, Button } from 'reactstrap';
 const ProductCard = () => {
   return (
     <>
-      <Col sm="12" md="6" lg="3" className="mb-3">
+      <Col sm="12" md="6" lg="3" className="mb-3 mt-3">
         <Card>
           <CardImg
             top

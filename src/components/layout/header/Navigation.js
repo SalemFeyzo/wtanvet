@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import logo from '../../../assets/logo.png';
+import { Link } from 'react-router-dom';
+import logo from '../../../assets/logo.jpg';
 import {
   Collapse,
   Navbar,
@@ -21,9 +22,11 @@ const Navigation = () => {
   return (
     <div>
       <Navbar light expand="md" fluid>
-        <NavbarBrand href="/">
-          <img height="50" width="150" src={logo} alt="150x50" />
-        </NavbarBrand>
+        <Link to="/">
+          <NavbarBrand>
+            <img height="60" width="170" src={logo} alt="150x50" />
+          </NavbarBrand>
+        </Link>
 
         <NavbarToggler onClick={toggle} />
 

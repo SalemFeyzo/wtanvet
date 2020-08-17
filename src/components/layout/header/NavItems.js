@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Nav,
   NavItem,
@@ -14,7 +15,9 @@ export const NavItems = () => {
     <>
       <Nav className="mr-auto " navbar>
         <NavItem>
-          <NavLink href="/">الرئيسية</NavLink>
+          <Link to="/">
+            <NavLink>الرئيسية</NavLink>
+          </Link>
         </NavItem>
         <UncontrolledDropdown nav inNavbar>
           <DropdownToggle nav caret>
@@ -22,10 +25,12 @@ export const NavItems = () => {
           </DropdownToggle>
           <DropdownMenu right>
             <DropdownItem>الشكل الصيدلاني</DropdownItem>
-            <DropdownItem divider />
             <DropdownItem>الحيوانات المعالجة</DropdownItem>
-            <DropdownItem divider />
             <DropdownItem>المجموعة العلاجية</DropdownItem>
+            <DropdownItem divider />
+            <Link to="/products">
+              <DropdownItem>جميع المنتجات</DropdownItem>
+            </Link>
           </DropdownMenu>
         </UncontrolledDropdown>
         <NavItem>
