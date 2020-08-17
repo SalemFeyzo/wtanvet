@@ -91,6 +91,13 @@
   display: flex;
   justify-content: space-between;
 }
+
+.category-accordion {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
 /**
 *Phone screen 
 *
@@ -118,5 +125,23 @@
   .footer-top {
     flex-direction: column;
     align-items: center;
+  }
+}
+/**
+ * taplate
+ *
+ **/
+@media screen and (min-width: 605px) and (max-width: 768px) {
+  .footer-bottom {
+    font-size: 12px;
+    flex-direction: column;
+  }
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+  }
+  .serach-icon {
+    margin-left: 0px;
+    margin-right: 325px;
   }
 }

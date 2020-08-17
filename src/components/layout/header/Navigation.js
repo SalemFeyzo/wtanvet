@@ -18,7 +18,7 @@ const Navigation = () => {
 
   const toggleSearch = () => setModal(!modal);
   const toggle = () => setIsOpen(!isOpen);
-
+  const screenWidth = window.screen.width;
   return (
     <div>
       <Navbar light expand="md" fluid>
@@ -27,15 +27,21 @@ const Navigation = () => {
             <img height="60" width="170" src={logo} alt="150x50" />
           </NavbarBrand>
         </Link>
-
+        {screenWidth <= 768 ? (
+          <Button color="light" className="serach-icon" onClick={toggleSearch}>
+            <SearchIcon className="text-secondary" />
+          </Button>
+        ) : null}
         <NavbarToggler onClick={toggle} />
 
         <Collapse isOpen={isOpen} navbar>
           <NavItems />
         </Collapse>
-        <Button color="light" className="serach-icon" onClick={toggleSearch}>
-          <SearchIcon className="text-secondary" />
-        </Button>
+        {screenWidth > 768 ? (
+          <Button color="light" className="serach-icon" onClick={toggleSearch}>
+            <SearchIcon className="text-secondary" />
+          </Button>
+        ) : null}
       </Navbar>
       <SearchBox isOpen={modal} toggleSearch={toggleSearch} />
     </div>
