@@ -5,8 +5,7 @@ import {
   GoogleMap,
   Marker,
 } from 'react-google-maps';
-
-export default class FooterMap extends Component {
+class FooterMap extends Component {
   render() {
     return (
       <div>

@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap');
 
-* {
+body {
   font-family: 'Cairo', sans-serif;
 }
 .body {
-  background-color: rgb(204, 234, 232);
+  background-color: rgb(248, 249, 250);
 }
 
 .languageSwitch {
@@ -98,6 +98,20 @@
   cursor: pointer;
 }
 
+.agents-page {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  background-color: whitesmoke;
+  width: 100%;
+  padding: 10px;
+}
+.agents-map {
+  width: 1350px;
+  height: 50vh;
+}
+
 /**
 *Phone screen 
 *
@@ -118,6 +132,13 @@
   .landing-jumb div p {
     font-size: 12px;
   }
+  .agents-page {
+    flex-direction: column;
+  }
+  .agents-map {
+    width: 350px;
+    height: 300px;
+  }
   .footer-bottom {
     font-size: 12px;
     flex-direction: column;
@@ -132,6 +153,13 @@
  *
  **/
 @media screen and (min-width: 605px) and (max-width: 768px) {
+  .agents-page {
+    flex-direction: column;
+  }
+  .agents-map {
+    width: 700px;
+    height: 300px;
+  }
   .footer-bottom {
     font-size: 12px;
     flex-direction: column;

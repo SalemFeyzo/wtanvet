@@ -10,26 +10,26 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 export const ProductsCategoryAccordion = () => {
-  const [isOpen1, setOpen1] = useState(false);
-  const [isOpen2, setOpen2] = useState(false);
-  const [isOpen3, setOpen3] = useState(false);
-  const toggleIcon1 = () => setOpen1(!isOpen1);
-  const toggleIcon2 = () => setOpen2(!isOpen2);
-  const toggleIcon3 = () => setOpen3(!isOpen3);
+  const [isOpenF, setOpenF] = useState(false);
+  const [isOpenS, setOpenS] = useState(false);
+  const [isOpenTH, setOpenTH] = useState(false);
+  const toggleIconF = () => setOpenF(!isOpenF);
+  const toggleIconS = () => setOpenS(!isOpenS);
+  const toggleIconTH = () => setOpenTH(!isOpenTH);
   return (
     <>
       <Card className="mt-2">
         <CardBody>
           <CardTitle
-            id="toggler1"
-            onClick={toggleIcon1}
+            id="togglerF"
+            onClick={toggleIconF}
             className="category-accordion"
           >
             {' '}
             <p>الشكل الصيدلاني</p>{' '}
-            {!isOpen1 ? <ChevronLeftIcon /> : <ExpandMoreIcon />}
+            {!isOpenF ? <ChevronLeftIcon /> : <ExpandMoreIcon />}
           </CardTitle>
-          <UncontrolledCollapse toggler="#toggler1">
+          <UncontrolledCollapse toggler="#togglerF">
             <ListGroupItem>الحقن</ListGroupItem>
             <ListGroupItem>السوائل</ListGroupItem>
             <ListGroupItem>البودرة</ListGroupItem>
@@ -38,15 +38,15 @@ export const ProductsCategoryAccordion = () => {
           </UncontrolledCollapse>
 
           <CardTitle
-            id="toggler2"
-            onClick={toggleIcon2}
+            id="togglerS"
+            onClick={toggleIconS}
             className="category-accordion"
           >
             {' '}
             <p>الشكل الصيدلاني</p>{' '}
-            {!isOpen2 ? <ChevronLeftIcon /> : <ExpandMoreIcon />}
+            {!isOpenS ? <ChevronLeftIcon /> : <ExpandMoreIcon />}
           </CardTitle>
-          <UncontrolledCollapse toggler="#toggler2">
+          <UncontrolledCollapse toggler="#togglerS">
             <ListGroupItem>الحقن</ListGroupItem>
             <ListGroupItem>السوائل</ListGroupItem>
             <ListGroupItem>البودرة</ListGroupItem>
@@ -55,15 +55,15 @@ export const ProductsCategoryAccordion = () => {
           </UncontrolledCollapse>
 
           <CardTitle
-            id="toggler3"
-            onClick={toggleIcon3}
+            id="togglerTH"
+            onClick={toggleIconTH}
             className="category-accordion"
           >
             {' '}
             <p>الشكل الصيدلاني</p>{' '}
-            {!isOpen3 ? <ChevronLeftIcon /> : <ExpandMoreIcon />}
+            {!isOpenTH ? <ChevronLeftIcon /> : <ExpandMoreIcon />}
           </CardTitle>
-          <UncontrolledCollapse toggler="#toggler3">
+          <UncontrolledCollapse toggler="#togglerTH">
             <ListGroupItem>الحقن</ListGroupItem>
             <ListGroupItem>السوائل</ListGroupItem>
             <ListGroupItem>البودرة</ListGroupItem>

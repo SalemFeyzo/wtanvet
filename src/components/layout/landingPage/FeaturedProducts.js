@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row } from 'reactstrap';
 import ProductCard from '../../products/ProductCard';
+import { products } from '../../../store/data/products';
 
 const FeaturedProducts = () => {
   return (
@@ -8,10 +9,9 @@ const FeaturedProducts = () => {
       <h3>منتجات مميزة</h3>
       <Container>
         <Row>
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          {products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
         </Row>
       </Container>
     </div>

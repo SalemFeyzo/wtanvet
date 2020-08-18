@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'reactstrap';
 import ProductCard from './ProductCard';
 import ProductSearchBox from './ProductSearchBox';
 import { ProductsCategoryAccordion } from './ProductsCategoryAccordion';
+import { products } from '../../store/data/products';
 
 const Products = () => {
   return (
@@ -14,14 +15,9 @@ const Products = () => {
         </Col>
         <Col>
           <Row>
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
+            {products.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
           </Row>
         </Col>
       </Row>

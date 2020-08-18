@@ -1,10 +1,11 @@
 import React from 'react';
 import { Col, Card, CardImg, CardBody, CardTitle, Button } from 'reactstrap';
 
-const ProductCard = () => {
+const ProductCard = (props) => {
+  const { name } = props.product;
   return (
     <>
-      <Col sm="12" md="6" lg="3" className="mb-3 mt-3">
+      <Col sm="12" md="6" lg="4" className="mb-3 mt-3">
         <Card>
           <CardImg
             top
@@ -13,7 +14,7 @@ const ProductCard = () => {
             alt="Card image cap"
           />
           <CardBody>
-            <CardTitle>وطن - فيتال</CardTitle>
+            <CardTitle>{name}</CardTitle>
             <Button color="primary">التفاصيل</Button>
           </CardBody>
         </Card>
