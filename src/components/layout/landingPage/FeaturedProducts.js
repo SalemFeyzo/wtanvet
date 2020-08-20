@@ -1,21 +1,29 @@
 import React from 'react';
 import { Container, Row } from 'reactstrap';
 import ProductCard from '../../products/ProductCard';
-import { products } from '../../../store/data/products';
+import { connect } from 'react-redux';
 
-const FeaturedProducts = () => {
+const FeaturedProducts = ({ products }) => {
   return (
     <div className="bg-light featured-products">
       <h3>منتجات مميزة</h3>
       <Container>
         <Row>
-          {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
+          {products &&
+            products.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
         </Row>
       </Container>
     </div>
   );
 };
 
-export default FeaturedProducts;
+const mapStateToProps = (state) => {
+  const products = state.products;
+  return {
+    products,
+  };
+};
+
+export default connect(mapStateToProps)(FeaturedProducts);

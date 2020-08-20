@@ -3,9 +3,9 @@ import { Container, Row, Col } from 'reactstrap';
 import ProductCard from './ProductCard';
 import ProductSearchBox from './ProductSearchBox';
 import { ProductsCategoryAccordion } from './ProductsCategoryAccordion';
-import { products } from '../../store/data/products';
+import { connect } from 'react-redux';
 
-const Products = () => {
+const Products = ({ products }) => {
   return (
     <Container>
       <Row>
@@ -15,13 +15,23 @@ const Products = () => {
         </Col>
         <Col>
           <Row>
-            {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
+            {products &&
+              products.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
           </Row>
         </Col>
       </Row>
     </Container>
   );
 };
-export default Products;
+
+const mapStateToProps = (state) => {
+  console.log(state);
+  const products = state.products;
+  return {
+    products,
+  };
+};
+
+export default connect(mapStateToProps)(Products);

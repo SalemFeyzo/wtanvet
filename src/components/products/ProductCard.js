@@ -1,8 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Col, Card, CardImg, CardBody, CardTitle, Button } from 'reactstrap';
 
 const ProductCard = (props) => {
-  const { name } = props.product;
+  const { name, pic, id } = props.product;
+  let path = '/product/' + name + '/' + id;
+  path = path.split(' ').join('_');
   return (
     <>
       <Col sm="12" md="6" lg="4" className="mb-3 mt-3">
@@ -10,12 +13,14 @@ const ProductCard = (props) => {
           <CardImg
             top
             width="100%"
-            src="https://reactstrap.github.io/assets/318x180.svg"
-            alt="Card image cap"
+            src={require('../../assets/productsPics/' + pic + '.jpg')}
+            alt={name}
           />
           <CardBody>
             <CardTitle>{name}</CardTitle>
-            <Button color="primary">التفاصيل</Button>
+            <Link to={path}>
+              <Button color="primary">التفاصيل</Button>
+            </Link>
           </CardBody>
         </Card>
       </Col>
