@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import Header from './components/layout/header/Header';
 import { Footer } from './components/layout/footer/Footer';
 import Routes from './Routes';
@@ -10,7 +10,7 @@ class App extends Component {
   };
   render() {
     return (
-      <BrowserRouter>
+      <Router>
         <div dir="rtl">
           <Header />
           <div className="body">
@@ -18,7 +18,7 @@ class App extends Component {
             <Footer />
           </div>
         </div>
-      </BrowserRouter>
+      </Router>
     );
   }
 }
