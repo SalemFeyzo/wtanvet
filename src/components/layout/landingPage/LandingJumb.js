@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Jumbotron, Button } from 'reactstrap';
 
 const LandingJumb = (props) => {
@@ -16,7 +17,9 @@ const LandingJumb = (props) => {
           <hr className="my-2" />
 
           <p className="lead">
-            <Button color="primary">جميع المنتجات</Button>
+            <Link to="/products">
+              <Button color="primary">جميع المنتجات</Button>
+            </Link>
           </p>
         </div>
       </Jumbotron>

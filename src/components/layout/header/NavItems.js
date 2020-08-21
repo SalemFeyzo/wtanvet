@@ -34,11 +34,6 @@ export const NavItems = () => {
           </DropdownMenu>
         </UncontrolledDropdown>
         <NavItem>
-          <Link to="/about">
-            <NavLink>من نحن</NavLink>
-          </Link>
-        </NavItem>
-        <NavItem>
           <Link to="/agents">
             {' '}
             <NavLink href="/">وكلائنا</NavLink>{' '}

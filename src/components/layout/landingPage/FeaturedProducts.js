@@ -3,14 +3,14 @@ import { Container, Row } from 'reactstrap';
 import ProductCard from '../../products/ProductCard';
 import { connect } from 'react-redux';
 
-const FeaturedProducts = ({ products }) => {
+const FeaturedProducts = ({ feturedProducts }) => {
   return (
     <div className="bg-light featured-products">
       <h3>منتجات مميزة</h3>
       <Container>
         <Row>
-          {products &&
-            products.map((product) => (
+          {feturedProducts &&
+            feturedProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
         </Row>
@@ -20,9 +20,9 @@ const FeaturedProducts = ({ products }) => {
 };
 
 const mapStateToProps = (state) => {
-  const products = state.products;
+  const feturedProducts = state.feturedProducts;
   return {
-    products,
+    feturedProducts,
   };
 };
 
