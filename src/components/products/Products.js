@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Link } from 'react-router-dom';
+import { Container, Row, Col, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import ProductCard from './ProductCard';
 import ProductSearchBox from './ProductSearchBox';
 import { ProductsCategoryAccordion } from './ProductsCategoryAccordion';
@@ -24,22 +25,30 @@ class Products extends Component {
     });
     search && console.log(filterSearch);
     return (
-      <Container>
-        <Row>
-          <Col sm={12} md={12} lg={3} className="mb-3 mt-3">
-            <ProductSearchBox setSearch={this.handleSearchChange} />
-            <ProductsCategoryAccordion />
-          </Col>
-          <Col>
-            <Row>
-              {products &&
-                products.map((product) => (
-                  <ProductCard key={product.id} product={product} />
-                ))}
-            </Row>
-          </Col>
-        </Row>
-      </Container>
+      <>
+        <Breadcrumb>
+          <BreadcrumbItem>
+            <Link to="/">الرئيسية</Link>
+          </BreadcrumbItem>
+          <BreadcrumbItem active>جميع المنتجات</BreadcrumbItem>
+        </Breadcrumb>
+        <Container>
+          <Row>
+            <Col sm={12} md={12} lg={3} className="mb-3 mt-3">
+              <ProductSearchBox setSearch={this.handleSearchChange} />
+              <ProductsCategoryAccordion />
+            </Col>
+            <Col>
+              <Row>
+                {products &&
+                  products.map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                  ))}
+              </Row>
+            </Col>
+          </Row>
+        </Container>
+      </>
     );
   }
 }

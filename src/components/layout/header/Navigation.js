@@ -38,9 +38,9 @@ const Navigation = () => {
           <NavItems />
         </Collapse>
         {screenWidth > 768 ? (
-          <Button color="light" className="serach-icon" onClick={toggleSearch}>
+          <div className="serach-icon" onClick={toggleSearch}>
             <SearchIcon className="text-secondary" />
-          </Button>
+          </div>
         ) : null}
       </Navbar>
       <SearchBox isOpen={modal} toggleSearch={toggleSearch} />

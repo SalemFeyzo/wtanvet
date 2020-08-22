@@ -26,7 +26,7 @@ const LandingAbout = () => {
               <CardBody>
                 <CardTitle>
                   <h3 className="text-primary">
-                    وطن فيت لصناعة الأدوية البيطرية
+                    وطن فيت للأدوية البيطرية
                   </h3>
                 </CardTitle>
                 <CardText>

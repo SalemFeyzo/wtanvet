@@ -1,33 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap');
+:root {
+  --main-btn-color: #f7941d;
+  --hover-btn-color: #ca740a;
+}
+.spinner {
+  display: flex;
+  justify-content: center;
+  margin-top: 50vh;
+}
 
 body {
   font-family: 'Cairo', sans-serif;
+}
+a {
+  color: #3d3c63;
+}
+a:hover {
+  text-decoration: none;
+}
+button {
+  background-color: white;
+  border: 1px solid var(--main-btn-color);
+  color: var(--main-btn-color);
+  border-radius: 2px;
+  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  transition: 0.5s ease-out;
+}
+button:hover {
+  background-color: var(--hover-btn-color);
+  color: white;
+  border-color: var(--hover-btn-color);
 }
 .body {
   background-color: rgb(248, 249, 250);
 }
 
-.languageSwitch {
-  background-color: rgb(255, 255, 255);
-  padding: 4px;
-  display: flex;
-}
-.languageSwitch h6 {
-  background-color: rgb(255, 255, 255);
-  margin-top: 3px;
-}
-
-.lang-btn {
-  border: none;
-  background-color: rgb(255, 255, 255);
-  margin: 1px;
-}
-.lang-btn:focus {
-  outline: 1px solid #f1bd2e;
-}
 .search-icon {
   font-size: 20px;
   background-color: rgb(255, 255, 255);
+  border: 0;
 }
 
 .landing-jumb {
@@ -75,6 +90,9 @@ body {
   color: rgb(202, 27, 27);
   font-size: 20px;
 }
+.footer-bottom a {
+  color: rgb(102, 118, 207);
+}
 .footer-top {
   display: flex;
   justify-content: space-between;
@@ -82,6 +100,18 @@ body {
   padding: 20px;
   color: antiquewhite;
   background-color: #444444;
+}
+.btn:focus {
+  background-color: #3d3c63;
+  border-color: inherit;
+}
+.btn:before {
+  background-color: #3d3c63;
+  border-color: inherit;
+}
+.btn:after {
+  background-color: #3d3c63;
+  border-color: inherit;
 }
 .contact-info {
   display: flex;

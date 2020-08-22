@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {
   Container,
@@ -9,6 +10,8 @@ import {
   ListGroup,
   ListGroupItem,
   ListGroupItemHeading,
+  Breadcrumb,
+  BreadcrumbItem,
 } from 'reactstrap';
 
 const Product = (props) => {
@@ -25,11 +28,17 @@ const Product = (props) => {
     packageType,
     preservation,
   } = productDetails;
-  console.log(productDetails);
-  console.log(props);
-  console.log(pic);
   return (
     <>
+      <Breadcrumb>
+        <BreadcrumbItem>
+          <Link to="/">الرئيسية</Link>
+        </BreadcrumbItem>
+        <BreadcrumbItem>
+          <Link to="/products">جميع المنتجات</Link>
+        </BreadcrumbItem>
+        <BreadcrumbItem active>{name}</BreadcrumbItem>
+      </Breadcrumb>
       <Container fluid>
         <Row>
           <Col className="mt-3 text-center">

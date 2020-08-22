@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Col, Card, CardImg, CardBody, CardTitle, Button } from 'reactstrap';
+import { Col, Card, CardImg, CardBody, CardTitle } from 'reactstrap';
 
 const ProductCard = (props) => {
   const { name, pic, id } = props.product;
@@ -19,7 +19,7 @@ const ProductCard = (props) => {
           <CardBody>
             <CardTitle>{name}</CardTitle>
             <Link to={path}>
-              <Button color="primary">التفاصيل</Button>
+              <button>التفاصيل</button>
             </Link>
           </CardBody>
         </Card>

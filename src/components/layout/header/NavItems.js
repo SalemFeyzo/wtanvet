@@ -36,13 +36,13 @@ export const NavItems = () => {
         <NavItem>
           <Link to="/agents">
             {' '}
-            <NavLink href="/">وكلائنا</NavLink>{' '}
+            <NavLink>وكلائنا</NavLink>{' '}
           </Link>
         </NavItem>
         <NavItem>
           <Link to="/contact">
             {' '}
-            <NavLink href="/">اتصل بنا</NavLink>
+            <NavLink>اتصل بنا</NavLink>
           </Link>
         </NavItem>
       </Nav>
