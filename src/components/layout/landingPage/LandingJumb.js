@@ -1,11 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Jumbotron, Button } from 'reactstrap';
+import { Jumbotron } from 'reactstrap';
+import useSound from 'use-sound';
+import SoundMp3 from '../../../assets/SoundMp3.mp3';
 
 const LandingJumb = (props) => {
+  const [play] = useSound(SoundMp3);
   return (
     <div>
-      <Jumbotron className="landing-jumb">
+      <Jumbotron className="landing-jumb shadowBlue">
         <div>
           <h1 className="display-4">وطن لصناعة الأدوية البيطرية</h1>
           <p className="lead">
@@ -18,7 +21,7 @@ const LandingJumb = (props) => {
 
           <p className="lead">
             <Link to="/products">
-              <Button color="primary">جميع المنتجات</Button>
+              <button onClick={play}>جميع المنتجات</button>
             </Link>
           </p>
         </div>

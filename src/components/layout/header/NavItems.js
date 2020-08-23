@@ -9,18 +9,21 @@ import {
   DropdownMenu,
   DropdownItem,
 } from 'reactstrap';
+import useSound from 'use-sound';
+import SoundMp3 from '../../../assets/SoundMp3.mp3';
 
 export const NavItems = () => {
+  const [play] = useSound(SoundMp3);
   return (
     <>
       <Nav className="mr-auto " navbar>
         <NavItem>
           <Link to="/">
-            <NavLink>الرئيسية</NavLink>
+            <NavLink onClick={play}>الرئيسية</NavLink>
           </Link>
         </NavItem>
         <UncontrolledDropdown nav inNavbar>
-          <DropdownToggle nav caret>
+          <DropdownToggle nav caret onClick={play}>
             منتجاتنا
           </DropdownToggle>
           <DropdownMenu right>
@@ -29,20 +32,20 @@ export const NavItems = () => {
             <DropdownItem>المجموعة العلاجية</DropdownItem>
             <DropdownItem divider />
             <Link to="/products">
-              <DropdownItem>جميع المنتجات</DropdownItem>
+              <DropdownItem onClick={play}>جميع المنتجات</DropdownItem>
             </Link>
           </DropdownMenu>
         </UncontrolledDropdown>
         <NavItem>
           <Link to="/agents">
             {' '}
-            <NavLink>وكلائنا</NavLink>{' '}
+            <NavLink onClick={play}>وكلائنا</NavLink>{' '}
           </Link>
         </NavItem>
         <NavItem>
           <Link to="/contact">
             {' '}
-            <NavLink>اتصل بنا</NavLink>
+            <NavLink onClick={play}>اتصل بنا</NavLink>
           </Link>
         </NavItem>
       </Nav>

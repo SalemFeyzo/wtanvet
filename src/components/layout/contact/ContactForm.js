@@ -3,13 +3,13 @@ import {
   Card,
   CardTitle,
   CardBody,
-  Button,
   Form,
   FormGroup,
   Label,
   Input,
   Alert,
 } from 'reactstrap';
+import SoundMp3 from '../../../assets/SoundMp3.mp3';
 
 export default class ContactForm extends React.Component {
   constructor(props) {
@@ -21,6 +21,7 @@ export default class ContactForm extends React.Component {
   }
 
   render() {
+    const clickSound = new Audio(SoundMp3);
     const { status } = this.state;
     return (
       <Card className="m-3">
@@ -81,7 +82,7 @@ export default class ContactForm extends React.Component {
                 شكرا لتواصلك معنا. سيتم الرد في اقرب وقت
               </Alert>
             ) : (
-              <Button color="primary">أرسل</Button>
+              <button onClick={() => clickSound.play()}>أرسل</button>
             )}
             {status === 'ERROR' && (
               <Alert className="mt-3" color="danger">

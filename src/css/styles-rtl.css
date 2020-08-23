@@ -19,7 +19,7 @@ a:hover {
   text-decoration: none;
 }
 button {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.692);
   border: 1px solid var(--main-btn-color);
   color: var(--main-btn-color);
   border-radius: 2px;
@@ -34,6 +34,11 @@ button:hover {
   background-color: var(--hover-btn-color);
   color: white;
   border-color: var(--hover-btn-color);
+}
+.shadowBlue {
+  -webkit-box-shadow: 15px 16px 55px -12px rgba(39, 34, 98, 0.78);
+  -moz-box-shadow: 15px 16px 55px -12px rgba(39, 34, 98, 0.78);
+  box-shadow: 15px 16px 55px -12px rgba(39, 34, 98, 0.78);
 }
 .body {
   background-color: rgb(248, 249, 250);
@@ -93,33 +98,10 @@ button:hover {
 .footer-bottom a {
   color: rgb(102, 118, 207);
 }
-.footer-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  color: antiquewhite;
-  background-color: #444444;
-}
-.btn:focus {
-  background-color: #3d3c63;
-  border-color: inherit;
-}
-.btn:before {
-  background-color: #3d3c63;
-  border-color: inherit;
-}
-.btn:after {
-  background-color: #3d3c63;
-  border-color: inherit;
-}
-.contact-info {
-  display: flex;
-  flex-direction: column;
-}
 .social-info {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .category-accordion {
@@ -161,6 +143,9 @@ button:hover {
   }
   .landing-jumb div p {
     font-size: 12px;
+  }
+  .category-accordion {
+    display: none;
   }
   .agents-page {
     flex-direction: column;

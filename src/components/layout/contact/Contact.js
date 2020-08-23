@@ -3,8 +3,11 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import ContactForm from './ContactForm';
 import { Container, Row, Col, BreadcrumbItem, Breadcrumb } from 'reactstrap';
+import useSound from 'use-sound';
+import SoundMp3 from '../../../assets/SoundMp3.mp3';
 
 export const Contact = () => {
+  const [play] = useSound(SoundMp3);
   return (
     <>
       <Helmet>
@@ -15,7 +18,9 @@ export const Contact = () => {
       </Helmet>
       <Breadcrumb>
         <BreadcrumbItem>
-          <Link to="/">الرئيسية</Link>
+          <Link to="/" onClick={play}>
+            الرئيسية
+          </Link>
         </BreadcrumbItem>
         <BreadcrumbItem active>اتصل بنا</BreadcrumbItem>
       </Breadcrumb>

@@ -5,6 +5,7 @@ import ProductCard from './ProductCard';
 import ProductSearchBox from './ProductSearchBox';
 import { ProductsCategoryAccordion } from './ProductsCategoryAccordion';
 import { connect } from 'react-redux';
+import SoundMp3 from '../../assets/SoundMp3.mp3';
 
 class Products extends Component {
   state = {
@@ -18,6 +19,7 @@ class Products extends Component {
   };
 
   render() {
+    const clickSound = new Audio(SoundMp3);
     const { products } = this.props;
     const { search } = this.state;
     const filterSearch = products.filter((product) => {
@@ -28,7 +30,9 @@ class Products extends Component {
       <>
         <Breadcrumb>
           <BreadcrumbItem>
-            <Link to="/">الرئيسية</Link>
+            <Link to="/" onClick={() => clickSound.play()}>
+              الرئيسية
+            </Link>
           </BreadcrumbItem>
           <BreadcrumbItem active>جميع المنتجات</BreadcrumbItem>
         </Breadcrumb>

@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import SocialInfo from './SocialInfo';
 
 const date = new Date();
 const year = moment(date).year();
@@ -11,6 +12,9 @@ export const FooterBottom = () => {
         <p>
           Copyrights &#169; {year + ' All Rights Reserved for  WatanVet,  Inc.'}
         </p>
+      </div>
+      <div>
+        <SocialInfo />
       </div>
       <div className="text-muted">
         <p>
