@@ -20,6 +20,10 @@ const Navigation = () => {
     toggleSearch();
     play();
   };
+  const toggleHumIcon = () => {
+    toggle();
+    play();
+  };
   return (
     <div>
       <Navbar light expand="md" fluid>
@@ -33,7 +37,7 @@ const Navigation = () => {
             <SearchIcon className="text-secondary" />
           </div>
         ) : null}
-        <NavbarToggler onClick={toggle} />
+        <NavbarToggler onClick={toggleHumIcon} />
 
         <Collapse isOpen={isOpen} navbar>
           <NavItems />

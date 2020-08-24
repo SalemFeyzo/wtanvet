@@ -8,21 +8,36 @@ import {
 } from 'reactstrap';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import useSound from 'use-sound';
+import SoundMp3 from '../../assets/SoundMp3.mp3';
 
 export const ProductsCategoryAccordion = () => {
+  const [play] = useSound(SoundMp3);
   const [isOpenF, setOpenF] = useState(false);
   const [isOpenS, setOpenS] = useState(false);
   const [isOpenTH, setOpenTH] = useState(false);
   const toggleIconF = () => setOpenF(!isOpenF);
   const toggleIconS = () => setOpenS(!isOpenS);
   const toggleIconTH = () => setOpenTH(!isOpenTH);
+  const onclickF = () => {
+    play();
+    toggleIconF();
+  };
+  const onclickS = () => {
+    play();
+    toggleIconS();
+  };
+  const onclickTH = () => {
+    play();
+    toggleIconTH();
+  };
   return (
-    <>
+    <div className="hidden-on-phone">
       <Card className="mt-2">
         <CardBody>
           <CardTitle
             id="togglerF"
-            onClick={toggleIconF}
+            onClick={onclickF}
             className="category-accordion"
           >
             {' '}
@@ -39,7 +54,7 @@ export const ProductsCategoryAccordion = () => {
 
           <CardTitle
             id="togglerS"
-            onClick={toggleIconS}
+            onClick={onclickS}
             className="category-accordion"
           >
             {' '}
@@ -56,7 +71,7 @@ export const ProductsCategoryAccordion = () => {
 
           <CardTitle
             id="togglerTH"
-            onClick={toggleIconTH}
+            onClick={onclickTH}
             className="category-accordion"
           >
             {' '}
@@ -72,6 +87,6 @@ export const ProductsCategoryAccordion = () => {
           </UncontrolledCollapse>
         </CardBody>
       </Card>
-    </>
+    </div>
   );
 };

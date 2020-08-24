@@ -42,6 +42,7 @@ class Products extends Component {
               <ProductSearchBox setSearch={this.handleSearchChange} />
               <ProductsCategoryAccordion />
             </Col>
+
             <Col>
               <Row>
                 {products &&

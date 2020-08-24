@@ -144,7 +144,7 @@ button:hover {
   .landing-jumb div p {
     font-size: 12px;
   }
-  .category-accordion {
+  .hidden-on-phone {
     display: none;
   }
   .agents-page {

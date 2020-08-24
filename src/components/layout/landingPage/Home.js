@@ -3,6 +3,7 @@ import LandingJumb from './LandingJumb';
 import { Services } from './Services';
 import { Container, Row } from 'reactstrap';
 import FeaturedProducts from './FeaturedProducts';
+import ProductSlider from './ProductSlider';
 
 export const Home = () => {
   return (
@@ -15,6 +16,8 @@ export const Home = () => {
           <Services />
         </Row>
       </Container>
+
+      <ProductSlider />
 
       <FeaturedProducts />
     </>

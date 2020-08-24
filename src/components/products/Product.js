@@ -13,9 +13,12 @@ import {
   Breadcrumb,
   BreadcrumbItem,
 } from 'reactstrap';
+import useSound from 'use-sound';
+import SoundMp3 from '../../assets/SoundMp3.mp3';
 
 const Product = (props) => {
   const productDetails = props.product[0];
+  const [play] = useSound(SoundMp3);
   const {
     name,
     pic,
@@ -32,10 +35,14 @@ const Product = (props) => {
     <>
       <Breadcrumb>
         <BreadcrumbItem>
-          <Link to="/">الرئيسية</Link>
+          <Link to="/" onClick={play}>
+            الرئيسية
+          </Link>
         </BreadcrumbItem>
         <BreadcrumbItem>
-          <Link to="/products">جميع المنتجات</Link>
+          <Link to="/products" onClick={play}>
+            جميع المنتجات
+          </Link>
         </BreadcrumbItem>
         <BreadcrumbItem active>{name}</BreadcrumbItem>
       </Breadcrumb>
