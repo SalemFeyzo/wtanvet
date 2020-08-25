@@ -16,13 +16,6 @@ const LandingJumb = (props) => {
             مجال الأدوية البيطرية في سوريا. تطبق الشركة تقنيات حديثة بهدف ضمان
             الفاعالية الممتازة في علاج مختلف الأمراض.
           </p>
-          <hr className="my-2" />
-
-          <p className="lead">
-            <Link to="/products">
-              <button onClick={play}>جميع المنتجات</button>
-            </Link>
-          </p>
         </div>
       </Jumbotron>
     </div>
