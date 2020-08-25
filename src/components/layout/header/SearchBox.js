@@ -51,7 +51,11 @@ class SearchBox extends Component {
             {this.state.search && <p>{filterSearch.length}نتائج / نتيجة</p>}
             {this.state.search &&
               filterSearch.map((product) => (
-                <HeaderSearchResults key={product.id} product={product} />
+                <HeaderSearchResults
+                  key={product.id}
+                  product={product}
+                  toggle={toggleSearch}
+                />
               ))}
           </ModalBody>
         </Modal>

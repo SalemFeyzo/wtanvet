@@ -1,27 +1,76 @@
 import React from 'react';
-import service1 from '../../../assets/services/service1.svg';
-import {
-  Col,
-  Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardTitle,
-  CardSubtitle,
-} from 'reactstrap';
+import { Col, Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
+import LazyLoad from 'react-lazyload';
+import LoadSpinner from '../../../UI/LoadSpinner';
 
 export const Services = () => {
   return (
     <>
       <Col lg={4} className="mb-3">
         <Card>
-          <CardImg top width="100%" src={service1} alt="Card image cap" />
+          <LazyLoad
+            height={100}
+            offset={[-100, 100]}
+            placeholder={<LoadSpinner />}
+          >
+            <CardImg
+              width="100%"
+              height="200px"
+              src={require('../../../assets/services/service1.jpg')}
+              alt="..."
+            />
+          </LazyLoad>
           <CardBody>
-            <CardTitle>Card title</CardTitle>
-            <CardSubtitle>Card subtitle</CardSubtitle>
+            <CardTitle>ضمان الجودة</CardTitle>
             <CardText>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+              تسعى شركة وطن فيت لتوفير منتجات ذات جودة عالية تتطابق مع المعايير
+              العالمية
+            </CardText>
+          </CardBody>
+        </Card>
+      </Col>
+      <Col lg={4} className="mb-3">
+        <Card>
+          <LazyLoad
+            height={100}
+            offset={[-100, 100]}
+            placeholder={<LoadSpinner />}
+          >
+            <CardImg
+              width="100%"
+              height="200px"
+              src={require('../../../assets/services/service2.jpg')}
+              alt="..."
+            />
+          </LazyLoad>
+
+          <CardBody>
+            <CardTitle>الشحن</CardTitle>
+            <CardText>
+              توفر شركة وطن للأدوية البيطرية خدمات شحن داخلية وخارجية
+            </CardText>
+          </CardBody>
+        </Card>
+      </Col>
+      <Col lg={4} className="mb-3">
+        <Card>
+          <LazyLoad
+            height={100}
+            offset={[-100, 100]}
+            placeholder={<LoadSpinner />}
+          >
+            <CardImg
+              width="100%"
+              height="200px"
+              src={require('../../../assets/services/service3.jpg')}
+              alt="..."
+            />
+          </LazyLoad>
+          <CardBody>
+            <CardTitle>البحث والتطوير</CardTitle>
+            <CardText>
+              تسعى شركة وطن للأدوية البيطرية لتطوير منتجاتها من اجل ضمان الجودة
+              والفعالية
             </CardText>
           </CardBody>
         </Card>

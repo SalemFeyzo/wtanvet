@@ -82,7 +82,7 @@ const ProductSlider = ({ products }) => {
   };
   return (
     <>
-      <Container>
+      <Container className="mt-4 mb-4">
         <Slider {...settings}>
           {products.map((product) => (
             <ProductToSlide key={product.id} product={product} />

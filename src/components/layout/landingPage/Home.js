@@ -9,10 +9,9 @@ export const Home = () => {
   return (
     <>
       <LandingJumb />
+
       <Container>
         <Row>
-          <Services />
-          <Services />
           <Services />
         </Row>
       </Container>

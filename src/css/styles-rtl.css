@@ -68,11 +68,11 @@ button:hover {
   margin-right: 20px;
   border-radius: 5px;
 }
-.landing-category {
-  padding: 15px;
-  margin-top: 3px;
-  margin-bottom: 10px;
-  border-radius: 3px;
+.services {
+  color: var(--main-btn-color);
+  font-size: 30px;
+  display: flex;
+  align-items: center;
 }
 .featured-products {
   padding: 10px;
@@ -158,9 +158,8 @@ button:hover {
     font-size: 12px;
     flex-direction: column;
   }
-  .footer-top {
-    flex-direction: column;
-    align-items: center;
+  .footer-bottom span {
+    font-size: 12px;
   }
 }
 /**

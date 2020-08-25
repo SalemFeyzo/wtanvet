@@ -7,7 +7,7 @@ import useSound from 'use-sound';
 import SoundMp3 from '../../assets/SoundMp3.mp3';
 
 const ProductCard = (props) => {
-  const { name, pic, lowPic, id } = props.product;
+  const { name, pic, id } = props.product;
   const [play] = useSound(SoundMp3);
   let path = '/product/' + name + '/' + id;
   path = path.split(' ').join('_');
@@ -20,12 +20,14 @@ const ProductCard = (props) => {
           placeholder={<LoadSpinner />}
         >
           <Card className="shadowBlue ">
-            <CardImg
-              top
-              width="100%"
-              src={require('../../assets/productsPics/' + pic + '.jpg')}
-              alt={name}
-            />
+            <LazyLoad once={true} placeholder={<LoadSpinner />}>
+              <CardImg
+                top
+                width="100%"
+                src={require('../../assets/productsPics/' + pic + '.jpg')}
+                alt={name}
+              />
+            </LazyLoad>
 
             <CardBody>
               <CardTitle>{name}</CardTitle>
