@@ -13,8 +13,11 @@ export const Contact = () => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>وطن فيت | اتصل بنا</title>
-        <meta name="description" content="وطن فيت للادوية البيطرية" />
-        <link rel="canonical" href="https://watanvet.com/contact" />
+        <meta
+          name="description"
+          content=" وطن للأدوية البيطرية (وطن فيت), من الشركات الرائدة في مجال الأدوية البيطرية في سوريا. تطبق الشركة تقنيات حديثة بهدف ضمان الفاعالية الممتازة في علاج مختلف الأمراض."
+        />
+        <link rel="canonical" href="https://watanvet.netlify.app/contact" />
       </Helmet>
       <Breadcrumb>
         <BreadcrumbItem>

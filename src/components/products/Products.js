@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Helmet from 'react-helmet';
 import { Container, Row, Col, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import ProductCard from './ProductCard';
 import ProductSearchBox from './ProductSearchBox';
@@ -28,6 +29,15 @@ class Products extends Component {
     search && console.log(filterSearch);
     return (
       <>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>وطن فيت | جميع المنتجات</title>
+          <meta
+            name="description"
+            content=" وطن للأدوية البيطرية (وطن فيت), من الشركات الرائدة في مجال الأدوية البيطرية في سوريا. تطبق الشركة تقنيات حديثة بهدف ضمان الفاعالية الممتازة في علاج مختلف الأمراض."
+          />
+          <link rel="canonical" href="https://watanvet.netlify.app/products" />
+        </Helmet>
         <Breadcrumb>
           <BreadcrumbItem>
             <Link to="/" onClick={() => clickSound.play()}>

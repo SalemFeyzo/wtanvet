@@ -36,9 +36,9 @@ button:hover {
   border-color: var(--hover-btn-color);
 }
 .shadowBlue {
-  -webkit-box-shadow: 4px 21px 17px -8px rgba(247, 149, 29, 1);
-  -moz-box-shadow: 4px 21px 17px -8px rgba(247, 149, 29, 1);
-  box-shadow: 4px 21px 17px -8px rgba(247, 149, 29, 1);
+  -webkit-box-shadow: 3px 5px 15px 0px rgba(242, 165, 12, 1);
+  -moz-box-shadow: 3px 5px 15px 0px rgba(242, 165, 12, 1);
+  box-shadow: 3px 5px 15px 0px rgba(242, 165, 12, 1);
 }
 .body {
   background-color: rgb(248, 249, 250);
@@ -83,6 +83,11 @@ button:hover {
   flex-direction: column;
   align-items: center;
 }
+.show-all-pruducts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .footer-bottom {
   margin-bottom: 0;
   color: antiquewhite;
@@ -100,6 +105,7 @@ button:hover {
 }
 .social-info {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }

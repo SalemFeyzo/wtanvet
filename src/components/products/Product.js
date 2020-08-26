@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import {
   Container,
@@ -20,6 +21,7 @@ const Product = (props) => {
   const productDetails = props.product[0];
   const [play] = useSound(SoundMp3);
   const {
+    id,
     name,
     pic,
     content,
@@ -31,8 +33,16 @@ const Product = (props) => {
     packageType,
     preservation,
   } = productDetails;
+  let path = '/product/' + name + '/' + id;
+  path = path.split(' ').join('_');
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>وطن فيت | {name}</title>
+        <meta name="description" content={indications} />
+        <link rel="canonical" href={`https://watanvet.netlify.app/${path}`} />
+      </Helmet>
       <Breadcrumb>
         <BreadcrumbItem>
           <Link to="/" onClick={play}>
