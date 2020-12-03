@@ -11,6 +11,7 @@
 
 body {
   font-family: 'Cairo', sans-serif;
+  height: 100vh;
 }
 a {
   color: #3d3c63;
@@ -117,6 +118,7 @@ button:hover {
 }
 
 .agents-page {
+  height: 80vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -124,10 +126,6 @@ button:hover {
   background-color: whitesmoke;
   width: 100%;
   padding: 10px;
-}
-.agents-map {
-  width: 1350px;
-  height: 50vh;
 }
 
 /**
