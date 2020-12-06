@@ -1,50 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import {
   UncontrolledCollapse,
   CardTitle,
   CardBody,
   Card,
   ListGroupItem,
-} from 'reactstrap';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import useSound from 'use-sound';
-import SoundMp3 from '../../assets/SoundMp3.mp3';
+} from 'reactstrap'
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import useSound from 'use-sound'
+import SoundMp3 from '../../assets/SoundMp3.mp3'
 
 export const ProductsCategoryAccordion = () => {
-  const [play] = useSound(SoundMp3);
-  const [isOpenF, setOpenF] = useState(false);
-  const [isOpenS, setOpenS] = useState(false);
-  const [isOpenTH, setOpenTH] = useState(false);
-  const toggleIconF = () => setOpenF(!isOpenF);
-  const toggleIconS = () => setOpenS(!isOpenS);
-  const toggleIconTH = () => setOpenTH(!isOpenTH);
+  const [play] = useSound(SoundMp3)
+  const [isOpenF, setOpenF] = useState(false)
+  const [isOpenS, setOpenS] = useState(false)
+  const [isOpenTH, setOpenTH] = useState(false)
+  const toggleIconF = () => setOpenF(!isOpenF)
+  const toggleIconS = () => setOpenS(!isOpenS)
+  const toggleIconTH = () => setOpenTH(!isOpenTH)
   const onclickF = () => {
-    play();
-    toggleIconF();
-  };
+    play()
+    toggleIconF()
+  }
   const onclickS = () => {
-    play();
-    toggleIconS();
-  };
+    play()
+    toggleIconS()
+  }
   const onclickTH = () => {
-    play();
-    toggleIconTH();
-  };
+    play()
+    toggleIconTH()
+  }
   return (
-    <div className="hidden-on-phone">
-      <Card className="mt-2">
+    <div className='hidden-on-phone'>
+      <Card className='mt-2'>
         <CardBody>
           <CardTitle
-            id="togglerF"
+            id='togglerF'
             onClick={onclickF}
-            className="category-accordion"
+            className='category-accordion'
           >
             {' '}
             <p>الشكل الصيدلاني</p>{' '}
             {!isOpenF ? <ChevronLeftIcon /> : <ExpandMoreIcon />}
           </CardTitle>
-          <UncontrolledCollapse toggler="#togglerF">
+          <UncontrolledCollapse toggler='#togglerF'>
             <ListGroupItem>الحقن</ListGroupItem>
             <ListGroupItem>السوائل</ListGroupItem>
             <ListGroupItem>البودرة</ListGroupItem>
@@ -53,15 +53,15 @@ export const ProductsCategoryAccordion = () => {
           </UncontrolledCollapse>
 
           <CardTitle
-            id="togglerS"
+            id='togglerS'
             onClick={onclickS}
-            className="category-accordion"
+            className='category-accordion'
           >
             {' '}
             <p>الشكل الصيدلاني</p>{' '}
             {!isOpenS ? <ChevronLeftIcon /> : <ExpandMoreIcon />}
           </CardTitle>
-          <UncontrolledCollapse toggler="#togglerS">
+          <UncontrolledCollapse toggler='#togglerS'>
             <ListGroupItem>الحقن</ListGroupItem>
             <ListGroupItem>السوائل</ListGroupItem>
             <ListGroupItem>البودرة</ListGroupItem>
@@ -70,15 +70,15 @@ export const ProductsCategoryAccordion = () => {
           </UncontrolledCollapse>
 
           <CardTitle
-            id="togglerTH"
+            id='togglerTH'
             onClick={onclickTH}
-            className="category-accordion"
+            className='category-accordion'
           >
             {' '}
             <p>الشكل الصيدلاني</p>{' '}
             {!isOpenTH ? <ChevronLeftIcon /> : <ExpandMoreIcon />}
           </CardTitle>
-          <UncontrolledCollapse toggler="#togglerTH">
+          <UncontrolledCollapse toggler='#togglerTH'>
             <ListGroupItem>الحقن</ListGroupItem>
             <ListGroupItem>السوائل</ListGroupItem>
             <ListGroupItem>البودرة</ListGroupItem>
@@ -88,5 +88,5 @@ export const ProductsCategoryAccordion = () => {
         </CardBody>
       </Card>
     </div>
-  );
-};
+  )
+}

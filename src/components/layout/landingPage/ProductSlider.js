@@ -1,15 +1,15 @@
-import React from 'react';
-import ProductToSlide from './ProductToSlide';
-import { connect } from 'react-redux';
-import { Container } from 'reactstrap';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import ArrowBackIosSharpIcon from '@material-ui/icons/ArrowBackIosSharp';
-import ArrowForwardIosSharpIcon from '@material-ui/icons/ArrowForwardIosSharp';
+import React from 'react'
+import ProductToSlide from './ProductToSlide'
+import { connect } from 'react-redux'
+import { Container } from 'reactstrap'
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+import ArrowBackIosSharpIcon from '@material-ui/icons/ArrowBackIosSharp'
+import ArrowForwardIosSharpIcon from '@material-ui/icons/ArrowForwardIosSharp'
 
 function NextArrow(props) {
-  const { className, style, onClick } = props;
+  const { className, style, onClick } = props
   return (
     <ArrowBackIosSharpIcon
       className={className}
@@ -20,11 +20,11 @@ function NextArrow(props) {
       }}
       onClick={onClick}
     />
-  );
+  )
 }
 
 function PrevArrow(props) {
-  const { className, style, onClick } = props;
+  const { className, style, onClick } = props
   return (
     <ArrowForwardIosSharpIcon
       className={className}
@@ -35,10 +35,11 @@ function PrevArrow(props) {
       }}
       onClick={onClick}
     />
-  );
+  )
 }
 
 const ProductSlider = ({ products }) => {
+  const productsToSlide = products.filter((product) => product.inSlide === 1)
   const settings = {
     lazyLoad: true,
     arrows: true,
@@ -79,25 +80,25 @@ const ProductSlider = ({ products }) => {
         },
       },
     ],
-  };
+  }
   return (
     <>
-      <Container className="mt-4 mb-4">
+      <Container className='mt-4 mb-4'>
         <Slider {...settings}>
-          {products.map((product) => (
+          {productsToSlide.map((product) => (
             <ProductToSlide key={product.id} product={product} />
           ))}
         </Slider>
       </Container>
     </>
-  );
-};
+  )
+}
 
-const mapstateToProps = (state) => {
-  const products = state.products;
+const mapStateToProps = (state) => {
+  const products = state.products
   return {
     products,
-  };
-};
+  }
+}
 
-export default connect(mapstateToProps)(ProductSlider);
+export default connect(mapStateToProps)(ProductSlider)

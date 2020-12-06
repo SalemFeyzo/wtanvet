@@ -52,7 +52,7 @@ button:hover {
 }
 
 .landing-jumb {
-  background-image: url('../assets/jumbtron-img.jpg');
+  background-image: url('/images/jumbtron-img.jpg');
   border-radius: 0;
   height: 75vh;
 

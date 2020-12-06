@@ -1,12 +1,12 @@
-import React from 'react';
-import { Col, Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
-import LazyLoad from 'react-lazyload';
-import LoadSpinner from '../../../UI/LoadSpinner';
+import React from 'react'
+import { Col, Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap'
+import LazyLoad from 'react-lazyload'
+import LoadSpinner from '../../../UI/LoadSpinner'
 
 export const Services = () => {
   return (
     <>
-      <Col lg={4} className="mb-3">
+      <Col lg={4} className='mb-3'>
         <Card>
           <LazyLoad
             height={100}
@@ -14,10 +14,10 @@ export const Services = () => {
             placeholder={<LoadSpinner />}
           >
             <CardImg
-              width="100%"
-              height="200px"
-              src={require('../../../assets/services/service1.jpg')}
-              alt="..."
+              width='100%'
+              height='200px'
+              src='/images/services/service1.jpg'
+              alt='...'
             />
           </LazyLoad>
           <CardBody>
@@ -29,7 +29,7 @@ export const Services = () => {
           </CardBody>
         </Card>
       </Col>
-      <Col lg={4} className="mb-3">
+      <Col lg={4} className='mb-3'>
         <Card>
           <LazyLoad
             height={100}
@@ -37,10 +37,10 @@ export const Services = () => {
             placeholder={<LoadSpinner />}
           >
             <CardImg
-              width="100%"
-              height="200px"
-              src={require('../../../assets/services/service2.jpg')}
-              alt="..."
+              width='100%'
+              height='200px'
+              src='/images/services/service2.jpg'
+              alt='...'
             />
           </LazyLoad>
 
@@ -52,7 +52,7 @@ export const Services = () => {
           </CardBody>
         </Card>
       </Col>
-      <Col lg={4} className="mb-3">
+      <Col lg={4} className='mb-3'>
         <Card>
           <LazyLoad
             height={100}
@@ -60,10 +60,10 @@ export const Services = () => {
             placeholder={<LoadSpinner />}
           >
             <CardImg
-              width="100%"
-              height="200px"
-              src={require('../../../assets/services/service3.jpg')}
-              alt="..."
+              width='100%'
+              height='200px'
+              src='/images/services/service3.jpg'
+              alt='...'
             />
           </LazyLoad>
           <CardBody>
@@ -76,5 +76,5 @@ export const Services = () => {
         </Card>
       </Col>
     </>
-  );
-};
+  )
+}

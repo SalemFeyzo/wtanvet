@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {
   Card,
   CardTitle,
@@ -9,13 +9,13 @@ import {
   Input,
   Alert,
   FormFeedback,
-} from 'reactstrap';
-import SoundMp3 from '../../../assets/SoundMp3.mp3';
+} from 'reactstrap'
+import SoundMp3 from '../../../assets/SoundMp3.mp3'
 
 export default class ContactForm extends React.Component {
   constructor(props) {
-    super(props);
-    this.submitForm = this.submitForm.bind(this);
+    super(props)
+    this.submitForm = this.submitForm.bind(this)
     this.state = {
       status: '',
       //validation
@@ -40,11 +40,11 @@ export default class ContactForm extends React.Component {
       invalidMessage: null,
       validMessage: null,
       messageErr: '',
-    };
+    }
   }
 
   handleChange = (e) => {
-    const re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    const re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
     const {
       name,
       company,
@@ -56,11 +56,11 @@ export default class ContactForm extends React.Component {
       phoneErr,
       emailErr,
       messageErr,
-    } = this.state;
+    } = this.state
     this.setState({
       [e.target.name]: e.target.value,
-    });
-    console.log(this.state);
+    })
+    console.log(this.state)
 
     //enable the button if fields not empty
     if (name && company && email && message) {
@@ -70,13 +70,13 @@ export default class ContactForm extends React.Component {
           validName: false,
           invalidName: true,
           nameErr: 'يجب ان يكون الاسم 3 احرف او اكثر',
-        });
+        })
       } else {
         this.setState({
           validName: true,
           invalidName: false,
           nameErr: '',
-        });
+        })
       }
       // Company validation
       if (company.length < 3) {
@@ -84,13 +84,13 @@ export default class ContactForm extends React.Component {
           validCompany: false,
           invalidCompany: true,
           companyErr: 'يجب ان يكون اسم الشركة 3 احرف او اكثر',
-        });
+        })
       } else {
         this.setState({
           validCompany: true,
           invalidCompany: false,
           companyErr: '',
-        });
+        })
       }
       // phone validation
       if (phone.length < 9) {
@@ -98,23 +98,23 @@ export default class ContactForm extends React.Component {
           validPhone: false,
           invalidPhone: true,
           phoneErr: 'يجب ان يكون الرقم اكثر من 9 خانات',
-        });
+        })
       } else {
         this.setState({
           validPhone: true,
           invalidPhone: false,
           phoneErr: '',
-        });
+        })
       }
       // email validation
       if (re.test(email)) {
-        this.setState({ validEmail: true, invalidEmail: false, emailErr: '' });
+        this.setState({ validEmail: true, invalidEmail: false, emailErr: '' })
       } else {
         this.setState({
           validEmail: false,
           invalidEmail: true,
           emailErr: 'أدخل ايميل صالح. الايميل الذي ادخلته غير صالح',
-        });
+        })
       }
       // message validation
       if (message.length < 20) {
@@ -122,30 +122,30 @@ export default class ContactForm extends React.Component {
           validMessage: false,
           invalidMessage: true,
           messageErr: 'يجب ان تكون الرسالة 20 حرف على الاقل',
-        });
+        })
       } else {
         this.setState({
           validMessage: true,
           invalidMessage: false,
           messageErr: '',
-        });
+        })
       }
       if (nameErr && companyErr && phoneErr && emailErr && messageErr) {
         this.setState({
           disabled: true,
-        });
+        })
       } else {
         this.setState({
           disabled: false,
-        });
+        })
       }
     } else {
-      return this.state;
+      return this.state
     }
-  };
+  }
 
   render() {
-    const clickSound = new Audio(SoundMp3);
+    const clickSound = new Audio(SoundMp3)
     const {
       status,
       invalidName,
@@ -164,26 +164,26 @@ export default class ContactForm extends React.Component {
       validMessage,
       messageErr,
       disabled,
-    } = this.state;
+    } = this.state
     return (
-      <Card className="m-3">
+      <Card className='m-3'>
         <CardBody>
           <CardTitle>
             <h4>اتصل بنا</h4>
           </CardTitle>
           <Form
             onSubmit={this.submitForm}
-            action="https://formspree.io/xwkrjpjn"
-            method="POST"
+            action='https://formspree.io/xwkrjpjn'
+            method='POST'
           >
-            <input type="hidden" name="_language" value="ar" />
+            <input type='hidden' name='_language' value='ar' />
             <FormGroup>
-              <Label for="name">الاسم:</Label>
+              <Label for='name'>الاسم:</Label>
               <Input
-                type="text"
-                name="name"
-                id="name"
-                placeholder="الاسم"
+                type='text'
+                name='name'
+                id='name'
+                placeholder='الاسم'
                 onChange={this.handleChange}
                 invalid={invalidName}
                 valid={validName}
@@ -191,12 +191,12 @@ export default class ContactForm extends React.Component {
               {nameErr && <FormFeedback>{nameErr}</FormFeedback>}
             </FormGroup>
             <FormGroup>
-              <Label for="companyname">اسم الشركة:</Label>
+              <Label for='companyname'>اسم الشركة:</Label>
               <Input
-                type="text"
-                name="company"
-                id="companyname"
-                placeholder="اسم الشركة"
+                type='text'
+                name='company'
+                id='companyname'
+                placeholder='اسم الشركة'
                 onChange={this.handleChange}
                 invalid={invalidCompany}
                 valid={validCompany}
@@ -204,12 +204,12 @@ export default class ContactForm extends React.Component {
               {companyErr && <FormFeedback>{companyErr}</FormFeedback>}
             </FormGroup>
             <FormGroup>
-              <Label for="phone">رقم الهاتف:</Label>
+              <Label for='phone'>رقم الهاتف:</Label>
               <Input
-                type="tel"
-                name="phone"
-                id="phone"
-                placeholder="00905356666666"
+                type='tel'
+                name='phone'
+                id='phone'
+                placeholder='00905356666666'
                 onChange={this.handleChange}
                 invalid={invalidPhone}
                 valid={validPhone}
@@ -217,12 +217,12 @@ export default class ContactForm extends React.Component {
               {phoneErr && <FormFeedback>{phoneErr}</FormFeedback>}
             </FormGroup>
             <FormGroup>
-              <Label for="email">الايميل: </Label>
+              <Label for='email'>الايميل: </Label>
               <Input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="ادخل الايميل هنا"
+                type='email'
+                name='email'
+                id='email'
+                placeholder='ادخل الايميل هنا'
                 onChange={this.handleChange}
                 invalid={invalidEmail}
                 valid={validEmail}
@@ -230,14 +230,14 @@ export default class ContactForm extends React.Component {
               {emailErr && <FormFeedback>{emailErr}</FormFeedback>}
             </FormGroup>
             <FormGroup>
-              <Label for="message">الرسالة:</Label>
+              <Label for='message'>الرسالة:</Label>
               <Input
-                type="textarea"
-                name="message"
-                id="message"
-                placeholder="ادخل الرسالة هنا"
-                rows="7"
-                cols="50"
+                type='textarea'
+                name='message'
+                id='message'
+                placeholder='ادخل الرسالة هنا'
+                rows='7'
+                cols='50'
                 onChange={this.handleChange}
                 invalid={invalidMessage}
                 valid={validMessage}
@@ -245,7 +245,7 @@ export default class ContactForm extends React.Component {
               {messageErr && <FormFeedback>{messageErr}</FormFeedback>}
             </FormGroup>
             {status === 'SUCCESS' ? (
-              <Alert color="success">
+              <Alert color='success'>
                 شكرا لتواصلك معنا. سيتم الرد في اقرب وقت
               </Alert>
             ) : (
@@ -268,32 +268,32 @@ export default class ContactForm extends React.Component {
               </button>
             )}
             {status === 'ERROR' && (
-              <Alert className="mt-3" color="danger">
+              <Alert className='mt-3' color='danger'>
                 حدث خطأ الرجاء المحاولة مرة أخرى
               </Alert>
             )}
           </Form>
         </CardBody>
       </Card>
-    );
+    )
   }
 
   submitForm(ev) {
-    ev.preventDefault();
-    const form = ev.target;
-    const data = new FormData(form);
-    const xhr = new XMLHttpRequest();
-    xhr.open(form.method, form.action);
-    xhr.setRequestHeader('Accept', 'application/json');
+    ev.preventDefault()
+    const form = ev.target
+    const data = new FormData(form)
+    const xhr = new XMLHttpRequest()
+    xhr.open(form.method, form.action)
+    xhr.setRequestHeader('Accept', 'application/json')
     xhr.onreadystatechange = () => {
-      if (xhr.readyState !== XMLHttpRequest.DONE) return;
+      if (xhr.readyState !== XMLHttpRequest.DONE) return
       if (xhr.status === 200) {
-        form.reset();
-        this.setState({ status: 'SUCCESS' });
+        form.reset()
+        this.setState({ status: 'SUCCESS' })
       } else {
-        this.setState({ status: 'ERROR' });
+        this.setState({ status: 'ERROR' })
       }
-    };
-    xhr.send(data);
+    }
+    xhr.send(data)
   }
 }

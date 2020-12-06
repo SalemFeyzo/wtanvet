@@ -1,11 +1,12 @@
-import React from 'react';
-import { Container, Row } from 'reactstrap';
-import ProductCard from '../../products/ProductCard';
-import { connect } from 'react-redux';
+import React from 'react'
+import { Container, Row } from 'reactstrap'
+import ProductCard from '../../products/ProductCard'
+import { connect } from 'react-redux'
 
-const FeaturedProducts = ({ feturedProducts }) => {
+const FeaturedProducts = ({ products }) => {
+  const feturedProducts = products.filter((product) => product.featured === 1)
   return (
-    <div className="bg-light featured-products">
+    <div className='bg-light featured-products'>
       <h3>منتجات مميزة</h3>
       <Container>
         <Row>
@@ -16,14 +17,14 @@ const FeaturedProducts = ({ feturedProducts }) => {
         </Row>
       </Container>
     </div>
-  );
-};
+  )
+}
 
 const mapStateToProps = (state) => {
-  const feturedProducts = state.feturedProducts;
+  const products = state.products
   return {
-    feturedProducts,
-  };
-};
+    products,
+  }
+}
 
-export default connect(mapStateToProps)(FeaturedProducts);
+export default connect(mapStateToProps)(FeaturedProducts)
