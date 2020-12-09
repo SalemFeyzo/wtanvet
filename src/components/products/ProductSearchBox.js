@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, FormGroup, Input, Card, CardBody, CardTitle } from 'reactstrap'
 
-const ProductSearchBox = (props) => {
+const ProductSearchBox = ({ setSearch }) => {
   return (
     <>
       <Card>
@@ -14,7 +14,7 @@ const ProductSearchBox = (props) => {
                 name='search'
                 id='search'
                 placeholder='ادخل اسم المنتج'
-                onChange={props.setSearch}
+                onChange={(e) => setSearch(e.target.value)}
               />
             </FormGroup>
           </Form>

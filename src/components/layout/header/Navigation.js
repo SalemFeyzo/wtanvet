@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import logo from '../../../assets/logo.svg'
+import logo from '../../../assets/logo.png'
 import { Collapse, Navbar, NavbarToggler, NavbarBrand } from 'reactstrap'
 import { NavItems } from './NavItems'
 import SearchIcon from '@material-ui/icons/Search'
@@ -26,15 +26,15 @@ const Navigation = () => {
   }
   return (
     <div>
-      <Navbar light expand='md' fluid>
+      <Navbar className='nav-bar' dark expand='md' fluid>
         <Link to='/'>
           <NavbarBrand onClick={play}>
-            <img height='60' width='170' src={logo} alt='150x50' />
+            <img height='60' width='200' src={logo} alt='150x50' />
           </NavbarBrand>
         </Link>
         {screenWidth <= 768 ? (
           <div color='light' className='serach-icon' onClick={clickEvent}>
-            <SearchIcon className='text-secondary' />
+            <SearchIcon style={{ color: 'white' }} />
           </div>
         ) : null}
         <NavbarToggler onClick={toggleHumIcon} />
@@ -44,7 +44,9 @@ const Navigation = () => {
         </Collapse>
         {screenWidth > 768 ? (
           <div className='serach-icon' onClick={clickEvent}>
-            <SearchIcon className='text-secondary' />
+            <SearchIcon
+              style={{ color: 'white', height: '50px', width: '50px' }}
+            />
           </div>
         ) : null}
       </Navbar>

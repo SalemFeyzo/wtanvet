@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ProductToSlide from './ProductToSlide'
-import { connect } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Container } from 'reactstrap'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import ArrowBackIosSharpIcon from '@material-ui/icons/ArrowBackIosSharp'
 import ArrowForwardIosSharpIcon from '@material-ui/icons/ArrowForwardIosSharp'
+import { listProducts } from '../../../store/actions/productsActions'
+import LoadSpinner from '../../../UI/LoadSpinner'
 
 function NextArrow(props) {
   const { className, style, onClick } = props
@@ -38,8 +40,17 @@ function PrevArrow(props) {
   )
 }
 
-const ProductSlider = ({ products }) => {
+const ProductSlider = () => {
+  const dispatch = useDispatch()
+  const productList = useSelector((state) => state.productList)
+  const { loading, error, products } = productList
   const productsToSlide = products.filter((product) => product.inSlide === 1)
+  useEffect(() => {
+    dispatch(listProducts())
+    return () => {
+      //
+    }
+  }, [dispatch])
   const settings = {
     lazyLoad: true,
     arrows: true,
@@ -84,21 +95,18 @@ const ProductSlider = ({ products }) => {
   return (
     <>
       <Container className='mt-4 mb-4'>
-        <Slider {...settings}>
-          {productsToSlide.map((product) => (
-            <ProductToSlide key={product.id} product={product} />
-          ))}
-        </Slider>
+        {loading ? (
+          <LoadSpinner />
+        ) : (
+          <Slider {...settings}>
+            {productsToSlide.map((product) => (
+              <ProductToSlide key={product.id} product={product} />
+            ))}
+          </Slider>
+        )}
       </Container>
     </>
   )
 }
 
-const mapStateToProps = (state) => {
-  const products = state.products
-  return {
-    products,
-  }
-}
-
-export default connect(mapStateToProps)(ProductSlider)
+export default ProductSlider

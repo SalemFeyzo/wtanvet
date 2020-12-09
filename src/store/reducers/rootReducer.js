@@ -1,12 +1,13 @@
-import { combineReducers } from 'redux';
-import productsReducer from './productsReducer';
-import feturedProductsReducer from './feturedProductsReducer';
-import contactInfoReducer from './contactInfoReducer';
+import { combineReducers } from 'redux'
+import { productListReducer, productDetailsReducer } from './productsReducer'
+import contactInfoReducer from './contactInfoReducer'
+import carouselPicsReducer from './carouselPicsReducer'
 
 const rootReducer = combineReducers({
-  products: productsReducer,
+  productList: productListReducer,
+  productDetails: productDetailsReducer,
   contactInfo: contactInfoReducer,
-  feturedProducts: feturedProductsReducer,
-});
+  carouselPics: carouselPicsReducer,
+})
 
-export default rootReducer;
+export default rootReducer

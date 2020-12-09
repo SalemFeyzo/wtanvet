@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Card, CardImg, Col, CardBody, CardTitle } from 'reactstrap'
 import useSound from 'use-sound'
 import SoundMp3 from '../../../assets/SoundMp3.mp3'
+import ImageNotFound from '../../../assets/imageNotFound.png'
 
 const ProductToSlide = (props) => {
   const { name, pic, id } = props.product
@@ -13,8 +14,8 @@ const ProductToSlide = (props) => {
   return (
     <Col>
       <Link to={path} onClick={play}>
-        <Card>
-          <CardImg src={pic} />
+        <Card className='shadowBlue'>
+          <CardImg src={pic ? pic : ImageNotFound} />
           <CardBody>
             <CardTitle>{name}</CardTitle>
             <Link to={path}>

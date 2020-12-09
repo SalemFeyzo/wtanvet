@@ -11,26 +11,15 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import useSound from 'use-sound'
 import SoundMp3 from '../../assets/SoundMp3.mp3'
 
-export const ProductsCategoryAccordion = () => {
+export const ProductsCategoryAccordion = ({ setFilter }) => {
   const [play] = useSound(SoundMp3)
   const [isOpenF, setOpenF] = useState(false)
-  const [isOpenS, setOpenS] = useState(false)
-  const [isOpenTH, setOpenTH] = useState(false)
   const toggleIconF = () => setOpenF(!isOpenF)
-  const toggleIconS = () => setOpenS(!isOpenS)
-  const toggleIconTH = () => setOpenTH(!isOpenTH)
   const onclickF = () => {
     play()
     toggleIconF()
   }
-  const onclickS = () => {
-    play()
-    toggleIconS()
-  }
-  const onclickTH = () => {
-    play()
-    toggleIconTH()
-  }
+
   return (
     <div className='hidden-on-phone'>
       <Card className='mt-2'>
@@ -42,48 +31,63 @@ export const ProductsCategoryAccordion = () => {
           >
             {' '}
             <p>الشكل الصيدلاني</p>{' '}
-            {!isOpenF ? <ChevronLeftIcon /> : <ExpandMoreIcon />}
+            {!isOpenF ? <ExpandMoreIcon /> : <ChevronLeftIcon />}
           </CardTitle>
           <UncontrolledCollapse toggler='#togglerF'>
-            <ListGroupItem>الحقن</ListGroupItem>
-            <ListGroupItem>السوائل</ListGroupItem>
-            <ListGroupItem>البودرة</ListGroupItem>
-            <ListGroupItem>المضغوطات والتحاميل</ListGroupItem>
-            <ListGroupItem>حجر املاح</ListGroupItem>
-          </UncontrolledCollapse>
-
-          <CardTitle
-            id='togglerS'
-            onClick={onclickS}
-            className='category-accordion'
-          >
-            {' '}
-            <p>الشكل الصيدلاني</p>{' '}
-            {!isOpenS ? <ChevronLeftIcon /> : <ExpandMoreIcon />}
-          </CardTitle>
-          <UncontrolledCollapse toggler='#togglerS'>
-            <ListGroupItem>الحقن</ListGroupItem>
-            <ListGroupItem>السوائل</ListGroupItem>
-            <ListGroupItem>البودرة</ListGroupItem>
-            <ListGroupItem>المضغوطات والتحاميل</ListGroupItem>
-            <ListGroupItem>حجر املاح</ListGroupItem>
-          </UncontrolledCollapse>
-
-          <CardTitle
-            id='togglerTH'
-            onClick={onclickTH}
-            className='category-accordion'
-          >
-            {' '}
-            <p>الشكل الصيدلاني</p>{' '}
-            {!isOpenTH ? <ChevronLeftIcon /> : <ExpandMoreIcon />}
-          </CardTitle>
-          <UncontrolledCollapse toggler='#togglerTH'>
-            <ListGroupItem>الحقن</ListGroupItem>
-            <ListGroupItem>السوائل</ListGroupItem>
-            <ListGroupItem>البودرة</ListGroupItem>
-            <ListGroupItem>المضغوطات والتحاميل</ListGroupItem>
-            <ListGroupItem>حجر املاح</ListGroupItem>
+            <ListGroupItem
+              action
+              onClick={(e) => setFilter(e.target.textContent)}
+            >
+              محلول للحقن
+            </ListGroupItem>
+            <ListGroupItem
+              action
+              onClick={(e) => setFilter(e.target.textContent)}
+            >
+              محلول فموي
+            </ListGroupItem>
+            <ListGroupItem
+              action
+              onClick={(e) => setFilter(e.target.textContent)}
+            >
+              مستحلب فموي
+            </ListGroupItem>
+            <ListGroupItem
+              action
+              onClick={(e) => setFilter(e.target.textContent)}
+            >
+              معلق فموي
+            </ListGroupItem>
+            <ListGroupItem
+              action
+              onClick={(e) => setFilter(e.target.textContent)}
+            >
+              بودرة
+            </ListGroupItem>
+            <ListGroupItem
+              action
+              onClick={(e) => setFilter(e.target.textContent)}
+            >
+              بـودرة ذوابــة فــي الـمـاء
+            </ListGroupItem>
+            <ListGroupItem
+              action
+              onClick={(e) => setFilter(e.target.textContent)}
+            >
+              مرهم
+            </ListGroupItem>
+            <ListGroupItem
+              action
+              onClick={(e) => setFilter(e.target.textContent)}
+            >
+              بخاخ
+            </ListGroupItem>
+            <ListGroupItem
+              action
+              onClick={(e) => setFilter(e.target.textContent)}
+            >
+              مبيد حشري
+            </ListGroupItem>
           </UncontrolledCollapse>
         </CardBody>
       </Card>

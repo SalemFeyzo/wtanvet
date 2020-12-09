@@ -27,9 +27,9 @@ export const Contact = () => {
         </BreadcrumbItem>
         <BreadcrumbItem active>اتصل بنا</BreadcrumbItem>
       </Breadcrumb>
-      <Container className='bg-light mt-3' fluid>
+      <Container className='mt-3' fluid>
         <Row>
-          <Col sm={12} md={12} lg={6}>
+          <Col sm={12} md={12} lg={6} className='contact-form'>
             <ContactForm />
           </Col>
         </Row>

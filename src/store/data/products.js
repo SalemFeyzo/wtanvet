@@ -708,7 +708,7 @@ export const products = [
   },
   {
     id: '38',
-    pic: '/images/productsPics/2006.jpg',
+    pic: '/images/productsPics/2006.png',
     name: 'هوم فلوكس',
     dosageForm: 'محلول فموي',
     content: 'كل 100 مل تحتوي :\nانروفلوكساسين 10 غ',

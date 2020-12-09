@@ -166,7 +166,7 @@ export default class ContactForm extends React.Component {
       disabled,
     } = this.state
     return (
-      <Card className='m-3'>
+      <Card className='m-3 shadowBlue'>
         <CardBody>
           <CardTitle>
             <h4>اتصل بنا</h4>

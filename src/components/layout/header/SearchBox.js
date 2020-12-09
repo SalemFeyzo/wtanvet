@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react'
 import {
   FormGroup,
   Form,
@@ -6,69 +6,61 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
-} from 'reactstrap';
-import HeaderSearchResults from './HeaderSearchResults';
-import { connect } from 'react-redux';
+} from 'reactstrap'
+import HeaderSearchResults from './HeaderSearchResults'
+import { useDispatch, useSelector } from 'react-redux'
+import { listProducts } from '../../../store/actions/productsActions'
 
-class SearchBox extends Component {
-  state = {
-    search: null,
-  };
-  handleOnChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-    console.log(this.state.search);
-  };
+const SearchBox = (props) => {
+  const [search, setSearch] = useState(null)
+  const dispatch = useDispatch()
+  const productList = useSelector((state) => state.productList)
+  const { loading, error, products } = productList
+  const { className, isOpen, toggleSearch } = props
 
-  render() {
-    const { className, isOpen, toggleSearch } = this.props;
-
-    const filterSearch = this.props.products.filter((product) => {
-      return product.name.indexOf(this.state.search) !== -1;
-    });
-    return (
-      <>
-        <Modal
-          isOpen={isOpen}
-          toggle={toggleSearch}
-          className={className}
-          dir="rtl"
-        >
-          <ModalHeader toggle={toggleSearch}>ابحث عن منتج</ModalHeader>
-          <ModalBody>
-            <Form className="mt-3 ">
-              <FormGroup>
-                <Input
-                  type="text"
-                  name="search"
-                  id="search"
-                  placeholder="ادخل اسم المنتج"
-                  onChange={this.handleOnChange}
-                />
-              </FormGroup>
-            </Form>
-            {this.state.search && <p>{filterSearch.length}نتائج / نتيجة</p>}
-            {this.state.search &&
-              filterSearch.map((product) => (
-                <HeaderSearchResults
-                  key={product.id}
-                  product={product}
-                  toggle={toggleSearch}
-                />
-              ))}
-          </ModalBody>
-        </Modal>
-      </>
-    );
-  }
+  const filterSearch = products.filter(
+    (product) => product.name.indexOf(search) !== -1
+  )
+  useEffect(() => {
+    dispatch(listProducts())
+    return () => {
+      //
+    }
+  }, [dispatch])
+  return (
+    <>
+      <Modal
+        isOpen={isOpen}
+        toggle={toggleSearch}
+        className={className}
+        dir='rtl'
+      >
+        <ModalHeader toggle={toggleSearch}>ابحث عن منتج</ModalHeader>
+        <ModalBody>
+          <Form className='mt-3 '>
+            <FormGroup>
+              <Input
+                type='text'
+                name='search'
+                id='search'
+                placeholder='ادخل اسم المنتج'
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </FormGroup>
+          </Form>
+          {search && <p>{filterSearch.length} نتائج / نتيجة</p>}
+          {search &&
+            filterSearch.map((product) => (
+              <HeaderSearchResults
+                key={product.id}
+                product={product}
+                toggle={toggleSearch}
+              />
+            ))}
+        </ModalBody>
+      </Modal>
+    </>
+  )
 }
 
-const mapStateToProps = (state) => {
-  const products = state.products;
-  return {
-    products,
-  };
-};
-
-export default connect(mapStateToProps)(SearchBox);
+export default SearchBox
