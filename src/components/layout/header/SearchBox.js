@@ -10,6 +10,7 @@ import {
 import HeaderSearchResults from './HeaderSearchResults'
 import { useDispatch, useSelector } from 'react-redux'
 import { listProducts } from '../../../store/actions/productsActions'
+import LoadSpinner from '../../../UI/LoadSpinner'
 
 const SearchBox = (props) => {
   const [search, setSearch] = useState(null)
@@ -48,6 +49,8 @@ const SearchBox = (props) => {
               />
             </FormGroup>
           </Form>
+          {loading && <LoadSpinner />}
+          {error && <p>{error}</p>}
           {search && <p>{filterSearch.length} نتائج / نتيجة</p>}
           {search &&
             filterSearch.map((product) => (

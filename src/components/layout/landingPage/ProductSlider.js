@@ -7,7 +7,7 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import ArrowBackIosSharpIcon from '@material-ui/icons/ArrowBackIosSharp'
 import ArrowForwardIosSharpIcon from '@material-ui/icons/ArrowForwardIosSharp'
-import { listProducts } from '../../../store/actions/productsActions'
+import { listProductInSlide } from '../../../store/actions/productsActions'
 import LoadSpinner from '../../../UI/LoadSpinner'
 
 function NextArrow(props) {
@@ -42,15 +42,15 @@ function PrevArrow(props) {
 
 const ProductSlider = () => {
   const dispatch = useDispatch()
-  const productList = useSelector((state) => state.productList)
-  const { loading, error, products } = productList
-  const productsToSlide = products.filter((product) => product.inSlide === 1)
+  const productInSlide = useSelector((state) => state.productInSlide)
+  const { loading, error, products } = productInSlide
   useEffect(() => {
-    dispatch(listProducts())
+    dispatch(listProductInSlide())
     return () => {
       //
     }
   }, [dispatch])
+
   const settings = {
     lazyLoad: true,
     arrows: true,
@@ -97,12 +97,16 @@ const ProductSlider = () => {
       <Container className='mt-4 mb-4'>
         {loading ? (
           <LoadSpinner />
-        ) : (
+        ) : error ? (
+          <p>{error}</p>
+        ) : products ? (
           <Slider {...settings}>
-            {productsToSlide.map((product) => (
+            {products.map((product) => (
               <ProductToSlide key={product.id} product={product} />
             ))}
           </Slider>
+        ) : (
+          ''
         )}
       </Container>
     </>

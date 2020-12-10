@@ -2,16 +2,15 @@ import React, { useEffect } from 'react'
 import { Container, Row } from 'reactstrap'
 import ProductCard from '../../products/ProductCard'
 import { useDispatch, useSelector } from 'react-redux'
-import { listProducts } from '../../../store/actions/productsActions'
+import { listFeaturedProducts } from '../../../store/actions/productsActions'
 import LoadSpinner from '../../../UI/LoadSpinner'
 
 const FeaturedProducts = () => {
   const dispatch = useDispatch()
-  const productList = useSelector((state) => state.productList)
-  const { loading, error, products } = productList
-  const feturedProducts = products.filter((product) => product.featured === 1)
+  const featuredProducts = useSelector((state) => state.featuredProducts)
+  const { loading, error, products } = featuredProducts
   useEffect(() => {
-    dispatch(listProducts())
+    dispatch(listFeaturedProducts())
     return () => {
       //
     }
@@ -22,13 +21,16 @@ const FeaturedProducts = () => {
       <Container>
         {loading ? (
           <LoadSpinner />
-        ) : (
+        ) : error ? (
+          <p>{error}</p>
+        ) : products ? (
           <Row>
-            {feturedProducts &&
-              feturedProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
+            {products.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
           </Row>
+        ) : (
+          ''
         )}
       </Container>
     </div>

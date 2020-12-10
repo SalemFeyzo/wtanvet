@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col } from 'reactstrap'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import { useSelector } from 'react-redux'
-
+import LoadSpinner from '../../../UI/LoadSpinner'
+import { listCarouselPics } from '../../../store/actions/carouselActions'
 const Carousel = () => {
-  const carouselPics = useSelector((state) => state.carouselPics)
+  const dispatch = useDispatch()
+  const carouselPicsList = useSelector((state) => state.carouselPicsList)
+  const { loading, error, carouselPics } = carouselPicsList
+
+  useEffect(() => {
+    dispatch(listCarouselPics())
+    return () => {
+      //
+    }
+  }, [dispatch])
   const settings = {
     lazyLoad: true,
     arrows: false,
@@ -50,15 +60,23 @@ const Carousel = () => {
     <div className='carousel'>
       <Row>
         <Col>
-          <Slider {...settings} className='shadowBlue'>
-            {carouselPics.map((carouselPic) => (
-              <img
-                key={carouselPic.id}
-                src={carouselPic.pic}
-                alt={carouselPic.id}
-              />
-            ))}
-          </Slider>
+          {loading ? (
+            <LoadSpinner />
+          ) : error ? (
+            <p>{error}</p>
+          ) : carouselPics ? (
+            <Slider {...settings} className='shadowBlue'>
+              {carouselPics.map((carouselPic) => (
+                <img
+                  key={carouselPic.id}
+                  src={carouselPic.pic}
+                  alt={carouselPic.id}
+                />
+              ))}
+            </Slider>
+          ) : (
+            ''
+          )}
         </Col>
         <Col sm={12} md={6} lg={6} className='carousel-text'>
           <h1>وطن للأدوية البيطرية</h1>

@@ -1,5 +1,10 @@
 import { combineReducers } from 'redux'
-import { productListReducer, productDetailsReducer } from './productsReducer'
+import {
+  productListReducer,
+  productDetailsReducer,
+  productInSlideReducer,
+  featuredProductsReducer,
+} from './productsReducer'
 import contactInfoReducer from './contactInfoReducer'
 import carouselPicsReducer from './carouselPicsReducer'
 
@@ -8,6 +13,9 @@ const rootReducer = combineReducers({
   productDetails: productDetailsReducer,
   contactInfo: contactInfoReducer,
   carouselPics: carouselPicsReducer,
+  productInSlide: productInSlideReducer,
+  carouselPicsList: carouselPicsReducer,
+  featuredProducts: featuredProductsReducer,
 })
 
 export default rootReducer

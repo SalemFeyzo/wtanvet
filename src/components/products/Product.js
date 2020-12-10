@@ -76,13 +76,13 @@ const Product = (props) => {
               {product.content && (
                 <ListGroupItem action>
                   <span className='text-primary'>المحتويات: </span>
-                  {product.content}
+                  <p>{product.content}</p>
                 </ListGroupItem>
               )}
               {product.indications && (
                 <ListGroupItem action>
                   <span className='text-primary'>الاستطبابات: </span>
-                  {product.indications}
+                  <p>{product.indications}</p>
                 </ListGroupItem>
               )}
               {product.usage && (

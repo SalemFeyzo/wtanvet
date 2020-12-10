@@ -9,15 +9,18 @@ import { useDispatch, useSelector } from 'react-redux'
 import useSound from 'use-sound'
 import SoundMp3 from '../../assets/SoundMp3.mp3'
 import { listProducts } from '../../store/actions/productsActions'
+import LoadSpinner from '../../UI/LoadSpinner'
 
 const Products = () => {
   const [search, setSearch] = useState(null)
   const [dosageForm, setDosageForm] = useState(null)
+  const [productsToLoad, setProductsToload] = useState([])
+  const [num, setNum] = useState(12)
   const [play] = useSound(SoundMp3)
   const dispatch = useDispatch()
   const productList = useSelector((state) => state.productList)
   const { loading, error, products } = productList
-
+  const productsSlice = products.slice(0, num)
   const filterSearch = products.filter(
     (product) => product.name.indexOf(search) !== -1
   )
@@ -26,11 +29,16 @@ const Products = () => {
   )
   useEffect(() => {
     dispatch(listProducts())
+
     return () => {
       //
     }
   }, [dispatch])
-  console.log(products)
+  const loadProducts = () => {
+    setProductsToload(productsSlice)
+    setNum(num + 6)
+  }
+
   return (
     <>
       <Helmet>
@@ -58,6 +66,8 @@ const Products = () => {
           </Col>
 
           <Col>
+            {loading && <LoadSpinner />}
+            {error && <p>{error}</p>}
             {search && <h6>نتائج البحث ل: {search}</h6>}
             {dosageForm && <h6>منتجات شكلها الصيدلاني: {dosageForm}</h6>}
             <Row>
@@ -69,12 +79,27 @@ const Products = () => {
                 ? filterByDosageForm.map((d) => (
                     <ProductCard key={d.id} product={d} />
                   ))
-                : products.map((product) => (
+                : productsToLoad.length !== 0
+                ? productsToLoad.map((product) => (
                     <ProductCard key={product.id} product={product} />
-                  ))}
+                  ))
+                : products
+                    .slice(0, 6)
+                    .map((product) => (
+                      <ProductCard key={product.id} product={product} />
+                    ))}
             </Row>
           </Col>
         </Row>
+        <Container className='mt-4 mb-4 '>
+          <div className='show-all-pruducts'>
+            {productsToLoad && products.length !== productsToLoad.length ? (
+              <button onClick={loadProducts}>حمل المزيد من المنتجات</button>
+            ) : (
+              <p>نهاية المنتجات</p>
+            )}
+          </div>
+        </Container>
       </Container>
     </>
   )

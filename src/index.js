@@ -1,16 +1,13 @@
-import React, { Suspense } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
+import App from './App'
 import 'bootstrap-v4-rtl/dist/css/bootstrap-rtl.min.css'
 import './css/styles-rtl.css'
 import { Provider } from 'react-redux'
 import { store } from './store/store'
-import LoadSpinner from './UI/LoadSpinner'
-const App = React.lazy(() => import('./App'))
 ReactDOM.render(
   <Provider store={store}>
-    <Suspense fallback={<LoadSpinner />}>
-      <App />
-    </Suspense>
+    <App />
   </Provider>,
   document.getElementById('root')
 )
