@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Suspense } from 'react'
 import { Link } from 'react-router-dom'
 import Helmet from 'react-helmet'
 import { Container, Row, Col, Breadcrumb, BreadcrumbItem } from 'reactstrap'
-import ProductCard from './ProductCard'
 import ProductSearchBox from './ProductSearchBox'
 import { ProductsCategoryAccordion } from './ProductsCategoryAccordion'
 import { useDispatch, useSelector } from 'react-redux'
@@ -10,6 +9,8 @@ import useSound from 'use-sound'
 import SoundMp3 from '../../assets/SoundMp3.mp3'
 import { listProducts } from '../../store/actions/productsActions'
 import LoadSpinner from '../../UI/LoadSpinner'
+
+const ProductCard = React.lazy(() => import('./ProductCard'))
 
 const Products = () => {
   const [search, setSearch] = useState(null)
@@ -35,10 +36,15 @@ const Products = () => {
     }
   }, [dispatch])
   const loadProducts = () => {
+    play()
     setProductsToload(productsSlice)
     setNum(num + 6)
   }
-
+  const clearResults = () => {
+    play()
+    setSearch(null)
+    setDosageForm(null)
+  }
   return (
     <>
       <Helmet>
@@ -66,42 +72,69 @@ const Products = () => {
           </Col>
 
           <Col>
-            {loading && <LoadSpinner />}
             {error && <p>{error}</p>}
-            {search && <h6>نتائج البحث ل: {search}</h6>}
-            {dosageForm && <h6>منتجات شكلها الصيدلاني: {dosageForm}</h6>}
+            {search && (
+              <h6 className='result-title'>
+                نتائج البحث ل: {search}
+                <span className='close-button' onClick={clearResults}>
+                  X
+                </span>
+              </h6>
+            )}
+            {dosageForm && (
+              <h6 className='result-title'>
+                منتجات شكلها الصيدلاني: {dosageForm}
+                <span className='close-button' onClick={clearResults}>
+                  X
+                </span>
+              </h6>
+            )}
+            {loading && <LoadSpinner />}
             <Row>
               {search
                 ? filterSearch.map((s) => (
-                    <ProductCard key={s.id} product={s} />
+                    <Suspense fallback={<LoadSpinner />}>
+                      <ProductCard key={s.id} product={s} />
+                    </Suspense>
                   ))
                 : dosageForm
                 ? filterByDosageForm.map((d) => (
-                    <ProductCard key={d.id} product={d} />
+                    <Suspense fallback={<LoadSpinner />}>
+                      <ProductCard key={d.id} product={d} />
+                    </Suspense>
                   ))
                 : productsToLoad.length !== 0
                 ? productsToLoad.map((product) => (
-                    <ProductCard key={product.id} product={product} />
-                  ))
-                : products
-                    .slice(0, 6)
-                    .map((product) => (
+                    <Suspense fallback={<LoadSpinner />}>
                       <ProductCard key={product.id} product={product} />
-                    ))}
+                    </Suspense>
+                  ))
+                : products.slice(0, 6).map((product) => (
+                    <Suspense fallback={<LoadSpinner />}>
+                      <ProductCard key={product.id} product={product} />
+                    </Suspense>
+                  ))}
             </Row>
           </Col>
         </Row>
         <Container className='mt-4 mb-4 '>
           <div className='show-all-pruducts'>
-            {productsToLoad && products.length !== productsToLoad.length ? (
+            {!search &&
+            !dosageForm &&
+            productsToLoad &&
+            products.length !== productsToLoad.length ? (
               <>
-                <button onClick={loadProducts}>حمل المزيد من المنتجات</button>
+                <button onClick={loadProducts}>أظهر المزيد من المنتجات</button>
                 <p>{`${
                   productsToLoad.length === 0 ? 6 : productsToLoad.length
                 } ${num === 12 ? 'منتجات' : 'منتج'} من ${products.length}`}</p>
               </>
             ) : (
-              <p>{`${products.length} منتج من ${products.length}`}</p>
+              <p>
+                {!search &&
+                  !dosageForm &&
+                  `${products.length} منتج من ${products.length}`}
+              </p>
             )}
           </div>
         </Container>

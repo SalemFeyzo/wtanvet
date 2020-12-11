@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react'
-import ProductToSlide from './ProductToSlide'
+import React, { useEffect, Suspense } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Container } from 'reactstrap'
 import Slider from 'react-slick'
@@ -10,6 +9,7 @@ import ArrowForwardIosSharpIcon from '@material-ui/icons/ArrowForwardIosSharp'
 import { listProductInSlide } from '../../../store/actions/productsActions'
 import LoadSpinner from '../../../UI/LoadSpinner'
 
+const ProductToSlide = React.lazy(() => import('./ProductToSlide'))
 function NextArrow(props) {
   const { className, style, onClick } = props
   return (
@@ -102,7 +102,9 @@ const ProductSlider = () => {
         ) : products ? (
           <Slider {...settings}>
             {products.map((product) => (
-              <ProductToSlide key={product.id} product={product} />
+              <Suspense fallback={<LoadSpinner />}>
+                <ProductToSlide key={product.id} product={product} />
+              </Suspense>
             ))}
           </Slider>
         ) : (

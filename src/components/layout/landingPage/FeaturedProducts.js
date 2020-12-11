@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, Suspense } from 'react'
 import { Container, Row } from 'reactstrap'
-import ProductCard from '../../products/ProductCard'
 import { useDispatch, useSelector } from 'react-redux'
 import { listFeaturedProducts } from '../../../store/actions/productsActions'
 import LoadSpinner from '../../../UI/LoadSpinner'
 
+const ProductCard = React.lazy(() => import('../../products/ProductCard'))
 const FeaturedProducts = () => {
   const dispatch = useDispatch()
   const featuredProducts = useSelector((state) => state.featuredProducts)
@@ -26,7 +26,9 @@ const FeaturedProducts = () => {
         ) : products ? (
           <Row>
             {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <Suspense fallback={<LoadSpinner />}>
+                <ProductCard key={product.id} product={product} />
+              </Suspense>
             ))}
           </Row>
         ) : (

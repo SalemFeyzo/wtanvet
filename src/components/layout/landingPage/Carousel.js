@@ -6,6 +6,7 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import LoadSpinner from '../../../UI/LoadSpinner'
 import { listCarouselPics } from '../../../store/actions/carouselActions'
+
 const Carousel = () => {
   const dispatch = useDispatch()
   const carouselPicsList = useSelector((state) => state.carouselPicsList)
@@ -58,7 +59,7 @@ const Carousel = () => {
   }
   return (
     <div className='carousel'>
-      <Row>
+      <Row className='carousel-row'>
         <Col>
           {loading ? (
             <LoadSpinner />
