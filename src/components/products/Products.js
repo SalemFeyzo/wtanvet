@@ -94,9 +94,14 @@ const Products = () => {
         <Container className='mt-4 mb-4 '>
           <div className='show-all-pruducts'>
             {productsToLoad && products.length !== productsToLoad.length ? (
-              <button onClick={loadProducts}>حمل المزيد من المنتجات</button>
+              <>
+                <button onClick={loadProducts}>حمل المزيد من المنتجات</button>
+                <p>{`${
+                  productsToLoad.length === 0 ? 6 : productsToLoad.length
+                } ${num === 12 ? 'منتجات' : 'منتج'} من ${products.length}`}</p>
+              </>
             ) : (
-              <p>نهاية المنتجات</p>
+              <p>{`${products.length} منتج من ${products.length}`}</p>
             )}
           </div>
         </Container>
