@@ -10,6 +10,7 @@ export const listCarouselPics = () => async (dispatch) => {
     dispatch({ type: LIST_CAROUSEL_PICS_REQUEST })
     const data = await carouselPics
     dispatch({ type: LIST_CAROUSEL_PICS_SUCCESS, payload: data })
+    localStorage.setItem('carouselpics', JSON.stringify(data))
   } catch (error) {
     dispatch({ type: LIST_CAROUSEL_PICS_FAIL, payload: 'مشكلة في التحميل' })
   }
